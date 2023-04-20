@@ -1,52 +1,50 @@
 <template>
-    <div class="h-screen bg-white ">
-      <div class="w-full p-5 text-blue-950">
-        <div class="mt-10 font-bold text-center md:text-2xl">
-          Alguns dos meus projetos em forma de vídeo
+    <div class="h-screen bg-white">
+        <div class="w-full p-5 text-blue-950">
+            <div class="mt-10 font-bold text-center md:text-2xl">
+                Ofertas exclusivas aqui ->
+            </div>
+            <div class="flex justify-center mt-5">
+
+                <div class="relative flex shadow-2xl rounded-xl shadow-blue-950">
+                    <img class="w-7/12 " src="perfil2.jpeg" alt="">
+                    <div class="w-full h-full p-4 bg-gray-400 rounded-tr-xl rounded-br-xl">
+
+                        <div class="flex justify-end">
+                            <small class="p-1 ">
+                                Eletrodomésticos
+                            </small>
+                        </div>
+
+                        <div>
+                            <p>
+                                Smart TV
+                            </p>
+                            <p>
+                                Smart TV HD LED 42” Samsung T4300
+                            </p>
+                            <small>
+                                R$ 1.118,51
+                            </small>
+                        </div>
+                        <div class="absolute space-x-4 text-white bottom-4 right-4">
+                            <small class="flex justify-end mb-4 text-2xl">
+                                R$ 1.118,51
+                            </small>
+                        <button class="px-4 py-2 bg-red-700 rounded-xl">
+                        add no carrinho
+                        </button>
+                        <button class="px-4 py-2 bg-red-700 rounded-xl">
+                        Comprar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="flex flex-wrap justify-center mt-5 ">
-  
-            <div class="w-full h-full my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
-        <div>
-
-          <img class="w-full h-auto"
-          src="perfil2.jpeg" alt="">
-
-        </div>
-        <div class="flex-wrap h-32 px-2 mt-2 ">
-          <div class="flex items-end justify-end">
-            <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500"
-            >
-            Eletrodomésticos
-            </small>
-          </div>
-            <h1 class="font-bold">
-              Projeto inicial
-            </h1>
-            <p>
-              minha proposta pra dashboard
-            </p>
-            <div class="flex items-end justify-end">
-            <small class="mt-5"
-            >
-            R$ 1.118,51
-            </small>
-          </div>
-          </div>
-        </div>
-  
-  
-
-  
-  
-
-
-  
-  
-        </div>
-      </div>
     </div>
-  </template>
+</template>
   
   
   

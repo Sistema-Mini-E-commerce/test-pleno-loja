@@ -18,10 +18,10 @@
 
                         <div>
                             <p>
-                                Smart TV
+                                {{ produto.name }}
                             </p>
                             <p>
-                                Smart TV HD LED 42” Samsung T4300
+                                {{ produto.description }}
                             </p>
                             <small>
                                 R$ 1.118,51
@@ -47,4 +47,19 @@
 </template>
   
   
-  
+<script>
+import { useProductStore } from '~/store/product'
+
+export default {
+  data() {
+    return {
+      produto: ''
+    }
+  },
+  async created() {
+    const store = useProductStore()
+    const id = this.$route.params.id
+    this.produto = await store.getProductById(id)
+  }
+}
+</script>

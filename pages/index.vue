@@ -6,117 +6,33 @@
       </div>
       <div class="flex flex-wrap justify-center mt-5 ">
 
-        <div class="w-full h-full  my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
-        <div>
-          <img class="w-full h-auto"
-          src="perfil2.jpeg" alt="">
+        <div v-for="produto in produtos" :key="produto.id"
+          class="w-full h-full  my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
+          <div>
+            <img class="w-full h-auto" src="perfil2.jpeg" alt="">
 
-        </div>
-          <div class="flex-wrap h-32 px-2 mt-2 ">
-          <div class="flex items-end justify-end">
-            <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500"
-            >
-            Eletrodomésticos
-            </small>
           </div>
+          <div class="flex-wrap h-32 px-2 mt-2 ">
+            <div class="flex items-end justify-end">
+              <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500">
+
+                <nuxt-link :to="`/${produto._id}`">
+                  Ver detalhes
+                </nuxt-link>
+
+              </small>
+            </div>
             <h1 class="font-bold">
-              Smart TV
+              {{ produto.name }}
             </h1>
             <p>
-              Smart TV HD LED 42” Samsung T4300
+              {{ produto.description }}
             </p>
             <div class="flex items-end justify-end">
-            <small class="mt-5"
-            >
-            R$ 1.118,51
-            </small>
-          </div>
-          </div>
-        </div>
-
-
-        <div class="w-full h-full  my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
-        <div>
-          <img class="w-full h-auto"
-          src="perfil2.jpeg" alt="">
-
-        </div>
-          <div class="flex-wrap h-32 px-2 mt-2 ">
-          <div class="flex items-end justify-end">
-            <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500"
-            >
-            Eletrodomésticos
-            </small>
-          </div>
-            <h1 class="font-bold">
-              Smart TV
-            </h1>
-            <p>
-              Smart TV HD LED 42” Samsung T4300
-            </p>
-            <div class="flex items-end justify-end">
-            <small class="mt-5"
-            >
-            R$ 1.118,51
-            </small>
-          </div>
-          </div>
-        </div>
-
-
-        <div class="w-full h-full  my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
-        <div>
-          <img class="w-full h-auto"
-          src="perfil2.jpeg" alt="">
-
-        </div>
-          <div class="flex-wrap h-32 px-2 mt-2 ">
-          <div class="flex items-end justify-end">
-            <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500"
-            >
-            Eletrodomésticos
-            </small>
-          </div>
-            <h1 class="font-bold">
-              Smart TV
-            </h1>
-            <p>
-              Smart TV HD LED 42” Samsung T4300
-            </p>
-            <div class="flex items-end justify-end">
-            <small class="mt-5"
-            >
-            R$ 1.118,51
-            </small>
-          </div>
-          </div>
-        </div>
-
-        <div class="w-full h-full  my-2 text-white rounded-lg bg-violet-950 md:w-[350px] md:mx-2">
-        <div>
-          <img class="w-full h-auto"
-          src="perfil2.jpeg" alt="">
-
-        </div>
-          <div class="flex-wrap h-32 px-2 mt-2 ">
-          <div class="flex items-end justify-end">
-            <small class="p-1 border-2 border-solid rounded-lg bg-blue-950 border-sky-500"
-            >
-            Eletrodomésticos
-            </small>
-          </div>
-            <h1 class="font-bold">
-              Smart TV
-            </h1>
-            <p>
-              Smart TV HD LED 42” Samsung T4300
-            </p>
-            <div class="flex items-end justify-end">
-            <small class="mt-5"
-            >
-            R$ 1.118,51
-            </small>
-          </div>
+              <small class="mt-5">
+                R$:{{ produto.price }}
+              </small>
+            </div>
           </div>
         </div>
       </div>
@@ -124,4 +40,19 @@
   </div>
 </template>
 
+<script>
+import { useProductStore } from '~/store/product'
 
+export default {
+  data() {
+    return {
+      produtos: []
+    }
+  },
+  async created() {
+    const productStore = useProductStore()
+    await productStore.getProduct()
+    this.produtos = productStore.produtos
+  }
+}
+</script>

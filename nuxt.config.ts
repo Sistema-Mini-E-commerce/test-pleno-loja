@@ -11,7 +11,8 @@ export default defineNuxtConfig({
         },
   },
   modules: [
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    '@pinia/nuxt'
   ],
-    
 })
+

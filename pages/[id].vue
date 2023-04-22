@@ -24,14 +24,15 @@
                                 {{ produto.description }}
                             </p>
                             <small>
-                                R$ 1.118,51
+                                R$ {{ produto.price }}
                             </small>
                         </div>
                         <div class="absolute space-x-4 text-white bottom-4 right-4">
                             <small class="flex justify-end mb-4 text-2xl">
-                                R$ 1.118,51
+                                {{ totalItems }} -- R$ 1.118,51
                             </small>
-                        <button class="px-4 py-2 bg-red-700 rounded-xl">
+                        <button @click="addToCart"
+                         class="px-4 py-2 bg-red-700 rounded-xl">
                         add no carrinho
                         </button>
                         <button class="px-4 py-2 bg-red-700 rounded-xl">
@@ -49,17 +50,28 @@
   
 <script>
 import { useProductStore } from '~/store/product'
+import { useCartStore } from '~/store/cart'
 
 export default {
   data() {
     return {
-      produto: ''
+      produto: '',
+      totalItems: ''
     }
   },
   async created() {
     const store = useProductStore()
     const id = this.$route.params.id
     this.produto = await store.getProductById(id)
+
+    const cart = useCartStore()
+    this.totalItems = cart.totalItems
+  },
+  methods: {
+  async addToCart() {
+    const cart = useCartStore()
+    await cart.addToCart(this.produto.id)
   }
+}
 }
 </script>
